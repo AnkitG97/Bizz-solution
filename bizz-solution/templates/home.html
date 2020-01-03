@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block page_head %}
+    <!-- Custom CSS -->
+    <link href="{% static 'bigday/css/main.css' %}" rel="stylesheet">
+
+{% endblock %}
+{% block page_content %}
+
+
+
+
+        <nav class="navbar navbar-custom navbar-fixed-top">
+     <div class="container">
+         <div class="navbar-header">
+           
+         <img class="navbar-header img-responsive" src="../static/bigday/images/restaurant_logo.png" alt="Food High">
+         
+         </div>
+         <ul class="nav navbar-nav navbar-right">   
+           <li><a href="#aboutUs">About us</a></li>
+           
+           <li><a href="#contact_us">Contact us</a></li>  
+         </ul>      
+     </div>
+    </nav>
+
+
+
+
+    {% block main %}
+
+
+
+
+    <header>
+        <div class="text-center">
+            <h1 class="text-center" >Bizz Solution </h1>
+            <div class="lead">We provide the best buisness solution</div>
+           
+            <input type="button" class="btn btn-half" name=type id='bt1' value='Upload CSV files' onclick="setVisibility('sub3');";>
+            <div class="buttons">
+              <a href="http://127.0.0.1:5500/bigday/templates/demo1.html" class="btn btn-half">Result analysis</a>
+            
+            </div>
+            <br>
+             
+            <div id="sub3">
+                <button  class="btn btnn btn-half" type='button' onclick="openFile1()">PRODUCTS.CSV</button> 
+                <button type="button" class="btn btnn btn-half" onclick="openFile2()">ORDERS.CSV</button>
+                <button type="button" class="btn btnn btn-half" onclick="openFile3()">ORDER_PRODUCTS_TRAIN.CSV</button>
+                <button type="button" class="btn btnn btn-half" onclick="openFile4()">ORDER_PRODUCTS_PRIOR.CSV</button>
+                <button type="button" class="btn btnn btn-half" onclick="openFile5()">AILES.CSV</button>
+                <button type="button" class="btn btnn btn-half" id="primaryButton" onclick="openFile6()">DEPARTMENTS.CSV</button>
+                
+            </div>
+              <div style="margin-top: 100px">
+                <input type="file" id="PRODUCTS" name="products" visbility="hidden"  />
+                <input type="file" id="ORDERS" name="orders" visbility="hidden"/>
+                <input type="file" id="ORDER_PRODUCTS_TRAIN" name="order_product_train" />
+                <input type="file" id="ORDER_PRODUCTS_PRIOR" visbility="hidden" name=" order_product_prior" />
+                 <input type="file" id="AILES" visbility="hidden" name="alies" />
+                 <input type="file" id="DEPARTMENTS"  visbility="hidden" name="department" />    
+     </div>
+
+            
+                 
+        </div>
+    </header>
+  
+  
+ 
+   <section id="aboutUs">
+        {% include 'partials/aboutUs.html' %}
+    </section>
+   <section id="contact_us" >
+        {% include 'partials/contact_us.html' %}
+   </section>
+  
+
+
+{% include 'partials/footer.html' %}
+    {% endblock %}
+
+
+
+
+{% endblock %}
+{% block page_js %}
+
+
+
+
+    <!-- Plugin JavaScript -->
+    <!-- Easing is for the vertical scroll animations -->
+    <script src="{% static 'creative/js/jquery.easing.min.js' %}"></script>
+    <!-- Automatically fit text based on screen size.-->
+    <script src="{% static 'creative/js/jquery.fittext.js' %}"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="{% static 'bigday/js/main.js' %}"></script>
+
+    <script src="{% static 'bigday/js/button.js' %}"></script>
+
+
+  
+    
+    
+   
+
+
+
+
+{% endblock %}

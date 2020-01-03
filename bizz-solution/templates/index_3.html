@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Analysis Report</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/dataTables.bootstrap.css" rel="stylesheet">
+    <link href="../static/bigday/css/main.css" rel="stylesheet"?
+  </head>
+
+  <body>
+      <nav class="navbar navbar-custom navbar-fixed-top">
+          <div class="container">
+              <div class="navbar-header">
+                    <a href="http://127.0.0.1:8000">
+                        <img class="navbar-header img-responsive" src="../static/bigday/images/restaurant_logo.png" alt="Food High">
+                      </a>
+              </div>
+              <ul class="nav navbar-nav navbar-right">   
+                <li><a href="demo1.html">Report 1</a></li>
+                <li><a href="demo1.html#report_2">Report 2</a></li>
+                <li><a href="index.html">Report 3</a></li>
+                <li><a href="index_3.html">Report 4</a></li>
+                <li><a href="index_2.html">Report 5</a></li>  
+                <li><a href="index_6.html">Report 6</a></li>  
+              </ul>      
+          </div>
+         </nav>
+    <div class="container-fluid team" style="height: auto;">
+      <h2>TOP 500 MOST SOLD PRODUCTS</h2>
+      <div id='table-container'></div>
+
+    </div><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/jquery.csv.min.js"></script>
+    <script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="js/dataTables.bootstrap.js"></script>
+    <script type="text/javascript" src="js/csv_to_html_table.js"></script>
+    <script type="text/javascript" src="../static/bigday/js/main.js"></script>
+
+
+    <script type="text/javascript">
+      function format_link(link){
+        if (link)
+          return "<a href='" + link + "' target='_blank'>" + link + "</a>";
+        else
+          return "";
+      }
+
+      CsvToHtmlTable.init({
+        csv_path: 'data/top_500_prod.csv',
+        element: 'table-container', 
+        allow_download: true,
+        csv_options: {separator: ',', delimiter: '"'},
+        datatables_options: {"paging": false},
+        custom_formatting: [[4, format_link]]
+      });
+    </script>
+  </body>
+</html>

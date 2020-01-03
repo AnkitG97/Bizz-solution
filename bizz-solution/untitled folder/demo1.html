@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style>
+            table {
+                border-collapse: collapse;
+                border: 2px black solid;
+                font: 12px sans-serif;
+            }
+
+            td {
+                border: 1px black solid;
+                padding: 5px;
+            }
+            #img_analysis{
+              display: block;
+              margin-left: auto;
+              margin-right: auto;
+              width: 50%; display: block;
+              margin-top: 25px;
+              margin-bottom: 25px;
+            }
+        </style>
+    </head>
+    <body>
+         <script src="http://d3js.org/d3.v3.min.js"></script> 
+        <script src="d3.min.js?v=3.2.8"></script>
+
+        <script type="text/javascript"charset="utf-8">
+            d3.text("top_20_prod.csv", function(data) {
+                var parsedCSV = d3.csv.parseRows(data);
+
+                var container = d3.select("body")
+                    .append("table")
+
+                    .selectAll("tr")
+                        .data(parsedCSV).enter()
+                        .append("tr")
+
+                    .selectAll("td")
+                        .data(function(d) { return d; }).enter()
+                        .append("td")
+                        .text(function(d) { return d; });
+            });
+        </script>
+
+        
+        <div id="img_analysis">
+          <img border="4px" src="⁩books_read.png " alt="name" align="middle"  width="800" height="600" />
+        </div >
+
+        <div id="img_analysis">
+          <img border="4px" src="⁩⁩⁩days_of_order_in_a_week.jpg" align="middle" alt="abc" width="800" height="600" />
+        </div>
+    </body>
+</html>
